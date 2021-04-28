@@ -1,10 +1,10 @@
 class Player
-  attr_reader :lives
+  attr_reader :lives, :name
 
   def initialize(name)
     @name = name
     @lives = 3
-    puts "initialized player"
+    puts
   end
 
   def loose_life
