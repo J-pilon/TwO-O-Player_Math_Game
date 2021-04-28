@@ -11,6 +11,7 @@ class Question
   end
 
   def check_answer?(input)
-    input == @answer 
+    num = input.to_i
+    num == @answer 
   end 
 end

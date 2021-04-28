@@ -1,9 +1,10 @@
 class Game
 
   def initialize
-    @player1 = Players.new("p1")
-    @player2 = Players.new("p2")
+    @player1 = Player.new("p1")
+    @player2 = Player.new("p2")
     @current_player  = @player1
+    puts "game initialize"
   end
 
   def start
@@ -16,7 +17,7 @@ class Game
     question_one.generate_question
     print "> "
     user_answer = gets.chomp
-    result_one = question_one.check_answer(user_answer)
+    result_one = question_one.check_answer?(user_answer)
 
     if result_one
       puts "Correct Answer!"
@@ -33,10 +34,10 @@ class Game
       puts "Player 1: #{@player1.lives} / 3 vs Player 2: #{@player2.lives} / 3 "
       puts "******  Turn Over  ******"
 
-      if current_player == @player1
-        current_player = @player2
+      if @current_player == @player1
+        @current_player = @player2
       else
-        current_player = @player1
+        @current_player = @player1
       end
 
       self.start
